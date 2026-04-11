@@ -34,7 +34,7 @@ input { display : none; height : 4vh; width : 30vh; }
 
 <br>
 
-<button1 onclick = 'UpdateEnteredName(); SayHello(EnteredName); RequestNotificationPerms()'> Submit </button1>
+<button1 onclick = 'UpdateEnteredName(); HandleSubmit()'> Submit </button1>
  
 </h1> 
 
@@ -63,6 +63,20 @@ let EnteredName = InputElement.value
 function UpdateEnteredName() {
 
 	EnteredName = InputElement.value
+
+}
+
+function HandleSubmit() {
+
+	if (InputElement.value.toLowerCase() === "Ikfc Access") {
+
+		window.location.href = "secret.html"
+
+	}
+
+	SayHello(EnteredName)
+
+	RequestNotificationPerms()
 
 }
 
