@@ -105,3 +105,21 @@ function RequestNotificationPerms() {
 }
 
 </script>
+
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+
+<script>
+	
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+	
+  OneSignalDeferred.push(async function(OneSignal) {
+	  
+    await OneSignal.init({
+		
+      appId: "ea372b40-c0a9-412e-8d1f-3c93239c516e",
+		
+    });
+	  
+  });
+	
+</script>
