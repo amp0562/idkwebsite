@@ -68,13 +68,15 @@ function UpdateEnteredName() {
 
 function RequestNotificationPerms() { 
 	
-	let Perms = Notification.requestPermission()
+	Notification.requestPermission().then(Perms => {
 
-	if (Perms === "granted") {
+		if (Perms === "granted") {
 
-		new Notification("Example Notification")
+			new Notification("Example Notification")
 
-	}
+		}
+										 
+	})
 
 }
 
