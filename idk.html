@@ -67,6 +67,14 @@ function UpdateEnteredName() {
 }
 
 function RequestNotificationPerms() { 
+
+	if (Notification.permission === "granted") {
+
+		new Notification("Example Notification")
+
+		return
+
+	}
 	
 	Notification.requestPermission().then(Perms => {
 
