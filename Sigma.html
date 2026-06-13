@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Time</title>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: system-ui, sans-serif;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      background: linear-gradient(120deg, #000, #111);
+      transition: background 2s linear;
+    }
+
+    #time {
+      font-size: 5rem;
+      letter-spacing: 0.1em;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <div id="time"></div>
+
+  <script>
+    const timeEl = document.getElementById("time");
+
+    function update() {
+      const now = new Date();
+
+      // Time display
+      const h = String(now.getHours()).padStart(2, "0");
+      const m = String(now.getMinutes()).padStart(2, "0");
+      const s = String(now.getSeconds()).padStart(2, "0");
+      timeEl.textContent = `${h}:${m}:${s}`;
+
+      // Gradient based on time
+      const minutes = now.getHours() * 60 + now.getMinutes();
+      const hue1 = (minutes * 3) % 360;
+      const hue2 = (hue1 + 120) % 360;
+
+      document.body.style.background = `
+        linear-gradient(
+          120deg,
+          hsl(${hue1}, 80%, 30%),
+          hsl(${hue2}, 80%, 40%)
+        )
+      `;
+    }
+
+    update();
+    setInterval(update, 1000);
+  </script>
+</body>
+</html>
